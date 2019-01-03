@@ -1,0 +1,196 @@
+// Font
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+// Variables 
+
+// Character Colors
+$izuku-button: #32AE96;
+$bakugo-button: #DC7B4D;
+$all-might-button: #F60C55;
+$todoroki-button: #8A2F2D;
+$naruto-button: #FDDE59;
+$satou-button: #FDDE59;
+$mikasa-button: #983135;
+$eren-button: #983135;
+$l-button: #000000;
+$misaki-button: #C3BE6D;
+$edward-button: #DA4A49;
+$kakashi-button: #8A8F4C;
+$violet-button: #E0C6B7;
+
+// Characther Backgrounds
+$izuku-background: url('./images/izuku_midoriya.png');
+$bakugo-background: url('./images/katsuki_bakugo.jpg');
+$all-might-background: url('./images/all_might.png');
+$todoroki-background: url('./images/shoto_todoroki.jpg');
+$naruto-background: url('./images/naruto_uzumaki.jpg');
+$satou-background: url('./images/tatsuhiro_satou.jpg');
+$mikasa-background: url('./images/mikasa_ackermann.jpg');
+$eren-background: url('./images/eren_jaeger.jpg');
+$l-background: url('./images/hEFk1Sf.jpg');
+$misaki-background: url('./images/misaki_nakahara.jpg');
+$edward-background: url('./images/edward_elric.jpg');
+$kakashi-background: url('./images/kakashi_hatake.png');
+$violet-background: url('./images/violet_evergarden.jpg');
+
+// Border Color
+$border: #ECEDEF;
+
+// Mixins
+@mixin push--auto {
+    margin: {
+      left: auto;
+      right: auto;
+    }
+  }
+
+@mixin vertical-align {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+@mixin buttons($width) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $width;
+  height: 40px;
+  background-color: $izuku-button;
+  border: solid 2px $border;
+  border-radius: 10px;
+
+  &:hover {
+    cursor: pointer;
+    animation-name: size-up;
+    animation-duration: 350ms;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes size-up {
+    100% {
+      transform: scale(1.1)
+    }
+  }
+
+}
+
+@mixin svg($width) {
+  svg {
+    width: $width;
+    fill: white;
+  }
+}
+
+@mixin background {
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+body.izuku {
+  @include background;
+  background: $izuku-background;
+}
+body.bakugo {
+  @include background;
+  background: $bakugo-background;
+}
+body.all-might {
+  @include background;
+  background: $all-might-background;
+}
+body.todoroki {
+  @include background;
+  background: $todoroki-background;
+}
+body.naruto {
+  @include background;
+  background: $naruto-background;
+}
+body.satou {
+  @include background;
+  background: $satou-background;
+}
+body.mikasa {
+  @include background;
+  background: $mikasa-background;
+}
+body.eren {
+  @include background;
+  background: $eren-background;
+}
+body.l {
+  @include background;
+  background: $l-background
+}
+body.misaki {
+  @include background;
+  background: $misaki-background;
+}
+body.edward {
+  @include background;
+  background: $edward-background;
+}
+body.kakashi {
+  @include background;
+  background: $kakashi-background;
+}
+body.violet {
+  @include background;
+  background: $violet-background;
+}
+body{
+font-family: 'Lato', sans-serif;
+
+    .container {
+        @include push--auto;
+        @include vertical-align;
+        display: grid;
+        grid-template-rows: 30% 40% 10% 20%;
+        height: 45%;
+        width: 55%;
+        border: 1px solid black;
+        background:rgba(255,255,255, 0.5);
+        border-radius: 10px;
+
+        .row-2 {
+    display:flex;
+    align-items: center; 
+    justify-content: center; 
+    margin: 5%;
+        }
+
+        .row-3 {
+          .author {
+            float: right;
+          margin: 10px;
+          }
+        }
+
+        .row-4 {
+
+          .tweet-button {
+            margin: 10px;
+            float: left;
+            @include buttons($width:22.5%);
+            @include svg(2em);
+          }  
+
+          .next-button {
+            margin: 10px;
+            float: right;
+            @include buttons($width: 8%);
+            @include svg($width: 10px)
+      
+          }
+
+        }
+
+    }
+
+
+
+
+}
