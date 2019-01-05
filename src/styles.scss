@@ -90,61 +90,73 @@ background-size: cover;
 }
 
 body.izuku {
-  @include background;
   background: $izuku-background;
+@include background;
 }
 body.bakugo {
-  @include background;
   background: $bakugo-background;
+@include background;
+background-position: right;
 }
 body.all-might {
-  @include background;
   background: $all-might-background;
+@include background;
 }
 body.todoroki {
-  @include background;
   background: $todoroki-background;
+@include background;
 }
 body.naruto {
-  @include background;
   background: $naruto-background;
+@include background;
 }
 body.satou {
-  @include background;
   background: $satou-background;
+@include background;
+background-position: right;
 }
 body.mikasa {
-  @include background;
   background: $mikasa-background;
+@include background;
+
 }
 body.eren {
-  @include background;
   background: $eren-background;
+@include background;
 }
 body.l {
-  @include background;
-  background: $l-background
+  background: $l-background;
+@include background;
 }
 body.misaki {
-  @include background;
   background: $misaki-background;
+@include background;
+background-position: right;
 }
 body.edward {
-  @include background;
   background: $edward-background;
+@include background;
 }
 body.kakashi {
-  @include background;
   background: $kakashi-background;
+@include background;
 }
 body.violet {
-  @include background;
   background: $violet-background;
+@include background;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body{
 font-family: 'Lato', sans-serif;
-
+height: 100vh;
+overflow: hidden;
+background-position: center;
     .container {
         @include push--auto;
         @include vertical-align;
@@ -153,7 +165,7 @@ font-family: 'Lato', sans-serif;
         height: 45%;
         width: 55%;
         border: 1px solid black;
-        background:rgba(255,255,255, 0.5);
+        background:rgba(255,255,255, 0.8);
         border-radius: 10px;
 
         .row-1{
