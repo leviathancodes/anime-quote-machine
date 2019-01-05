@@ -3,6 +3,7 @@ import './styles.scss'
 import info from './info.js'
 import Tweet from './Tweet.js'
 import Next from './Next'
+import { ReactComponent as QuoteIcon }from './images/quote.svg'
 
 class App extends Component {
   constructor(props) {
@@ -45,7 +46,9 @@ class App extends Component {
     return (
       <div id="quote-box" className="container">
 
-      <div className="row-1"></div>
+      <div className="row-1">
+      <div class="c"><QuoteIcon className="quote-icon"/></div>
+      </div>
 
       <div className="row-2">
       <h4 className="quote" id="text">{this.state.quote}</h4>
