@@ -146,6 +146,7 @@ body.violet {
 @include background;
 }
 
+// Normalizer
 * {
   margin: 0;
   padding: 0;
@@ -153,10 +154,13 @@ body.violet {
 }
 
 body{
+padding: 30px;
 font-family: 'Lato', sans-serif;
 height: 100vh;
 overflow: hidden;
 background-position: center;
+
+
     .container {
         @include push--auto;
         @include vertical-align;
@@ -177,7 +181,7 @@ background-position: center;
   
   .quote-icon {
     padding-left: 8%;
-    width: 50%;
+    width: 70%;
   }
           }
        

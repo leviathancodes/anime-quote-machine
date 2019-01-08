@@ -47,7 +47,7 @@ class App extends Component {
       <div id="quote-box" className="container">
 
       <div className="row-1">
-      <div class="c"><QuoteIcon className="quote-icon"/></div>
+      <div className="c"><QuoteIcon className="quote-icon"/></div>
       </div>
 
       <div className="row-2">
