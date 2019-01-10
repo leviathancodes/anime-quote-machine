@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { ReactComponent as ArrowIcon } from './images/arrow.svg';
 
 const Next = props => {
     return (
-        <div className="next-button" id="new-quote" onClick={props.nextQuote}>
+        <div className={`next-${props.class} next-button`} id="new-quote" onClick={props.nextQuote}>
             <ArrowIcon />
         </div>
     )

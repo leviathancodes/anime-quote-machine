@@ -59,8 +59,8 @@ class App extends Component {
       </div>
       
       <div className="row-4">
-        <Tweet quote={this.state.quote} author={this.state.author}/>
-        <Next nextQuote={this.nextQuote}/>
+        <Tweet quote={this.state.quote} author={this.state.author} class={this.state.class}/>
+        <Next nextQuote={this.nextQuote} class={this.state.class}/>
         </div>
       </div>
     );
