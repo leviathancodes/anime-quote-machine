@@ -1,55 +1,46 @@
 // Font
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
-// Variables 
 
-// Character Colors
-$izuku-button: #32AE96;
-$bakugo-button: #DC7B4D;
-$all-might-button: #F60C55;
-$todoroki-button: #8A2F2D;
-$naruto-button: #FDDE59;
-$satou-button: #FDDE59;
-$mikasa-button: #983135;
-$eren-button: #983135;
-$l-button: #000000;
-$misaki-button: #C3BE6D;
-$edward-button: #DA4A49;
-$kakashi-button: #8A8F4C;
-$violet-button: #E0C6B7;
 
 // Characther Backgrounds
-$izuku-background: url('./images/izuku_midoriya.png');
-$bakugo-background: url('./images/katsuki_bakugo.jpg');
-$all-might-background: url('./images/all_might.png');
-$todoroki-background: url('./images/shoto_todoroki.jpg');
-$naruto-background: url('./images/naruto_uzumaki.jpg');
-$satou-background: url('./images/tatsuhiro_satou.jpg');
-$mikasa-background: url('./images/mikasa_ackermann.jpg');
-$eren-background: url('./images/eren_jaeger.jpg');
-$l-background: url('./images/hEFk1Sf.jpg');
-$misaki-background: url('./images/misaki_nakahara.jpg');
-$edward-background: url('./images/edward_elric.jpg');
-$kakashi-background: url('./images/kakashi_hatake.png');
-$violet-background: url('./images/violet_evergarden.jpg');
+$izuku-bg: url('./images/izuku_midoriya.png');
+$bakugo-bg: url('./images/katsuki_bakugo.jpg');
+$all-might-bg: url('./images/all_might.png');
+$todoroki-bg: url('./images/shoto_todoroki.jpg');
+$naruto-bg: url('./images/naruto_uzumaki.jpg');
+$satou-bg: url('./images/tatsuhiro_satou.jpg');
+$mikasa-bg: url('./images/mikasa_ackermann.jpg');
+$eren-bg: url('./images/eren_jaeger.jpg');
+$l-bg: url('./images/hEFk1Sf.jpg');
+$misaki-bg: url('./images/misaki_nakahara.jpg');
+$edward-bg: url('./images/edward_elric.jpg');
+$kakashi-bg: url('./images/kakashi_hatake.png');
+$violet-bg: url('./images/violet_evergarden.jpg');
+
+
+// List
+$color-list: #32AE96 #DC7B4D #F60C55 #8A2F2D #FDDE59 #FDDE59 #983135 #983135 #000000 #C3BE6D #DA4A49 #8A8F4C #E0C6B7;
+$char-list: (izuku bakugo all-might todoroki naruto satou mikasa eren l misaki edward kakashi violet);
+$bg-list: (url('./images/izuku_midoriya.png') $bakugo-bg $all-might-bg $todoroki-bg $naruto-bg $satou-bg $mikasa-bg $eren-bg $l-bg $misaki-bg $edward-bg $kakashi-bg $violet-bg);
 
 // Border Color
 $border: #ECEDEF;
 
 // Mixins
 @mixin push--auto {
-    margin: {
-      left: auto;
-      right: auto;
-    }
+  margin: {
+    left: auto;
+    right: auto;
   }
+}
 
 @mixin vertical-align {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 @mixin buttons($width) {
   display: flex;
@@ -59,143 +50,62 @@ $border: #ECEDEF;
   height: 40px;
   border: solid 2px $border;
   border-radius: 10px;
+  transition: all .3s;
 
   &:hover {
     cursor: pointer;
-    animation-name: size-up;
-    animation-duration: 350ms;
-    animation-fill-mode: forwards;
+    transform: scale(1.1)
   }
 
-  @keyframes size-up {
-    100% {
-      transform: scale(1.1)
-    }
-  }
 
 }
 
 @mixin svg($width) {
+
+  .tweet-button,
+  .next-button {
+    fill: white;
+    width: $width;
+  }
+
   svg {
     width: $width;
-    fill: white;
   }
 }
 
 @mixin background {
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-body.izuku {
-  background: $izuku-background;
-@include background;
-}
-body.bakugo {
-  background: $bakugo-background;
-@include background;
-background-position: right;
-}
-body.all-might {
-  background: $all-might-background;
-@include background;
-}
-body.todoroki {
-  background: $todoroki-background;
-@include background;
-}
-body.naruto {
-  background: $naruto-background;
-@include background;
-}
-body.satou {
-  background: $satou-background;
-@include background;
-background-position: right;
-}
-body.mikasa {
-  background: $mikasa-background;
-@include background;
+// Loop for unique classes
+@for $i from 1 through length($char-list) {
+  $color: nth($color-list, $i);
+  $char: nth($char-list, $i);
+  $bg: nth($bg-list, $i);
 
-}
-body.eren {
-  background: $eren-background;
-@include background;
-}
-body.l {
-  background: $l-background;
-@include background;
-}
-body.misaki {
-  background: $misaki-background;
-@include background;
-background-position: right;
-}
-body.edward {
-  background: $edward-background;
-@include background;
-}
-body.kakashi {
-  background: $kakashi-background;
-@include background;
-}
-body.violet {
-  background: $violet-background;
-@include background;
+    .bg-#{$char} {
+      background: #{$bg};
+      @include background;
+    }
+
+    .elem-#{$char} {
+      background-color: #{$color};
+      fill: #{$color};
+    }
+
+    .tweet-button,
+    .next-button {
+      fill: white;
+    }
+  
+    .quote-icon {
+      background: none;
+    }
 }
 
-.next-izuku, .tweet-izuku {
-  background-color: $izuku-button;
-}
 
-.next-bakugo, .tweet-bakugo {
-  background-color: $bakugo-button;
-}
-
-.next-all-might, .tweet-all-might {
-  background-color: $all-might-button;
-}
-
-.next-todoroki, .tweet-todoroki {
-  background-color: $todoroki-button;
-}
-
-.next-naruto, .tweet-naruto {
-  background-color: $naruto-button;
-}
-
-.next-satou, .tweet-satou {
-  background-color: $satou-button;
-}
-
-.next-mikasa, .tweet-mikasa, {
-  background-color: $mikasa-button;
-}
-
-.next-eren, .tweet-eren {
-  background-color: $eren-button;
-}
-
-.next-l, .tweet-l {
-  background-color: $l-button;
-}
-
-.next-misaki, .tweet-misaki {
-  background-color: $misaki-button;
-}
-
-.next-edward, .tweet-edward {
-  background-color: $edward-button;
-}
-
-.next-kakashi, .tweet-kakashi {
-  background-color: $kakashi-button; 
-}
-
-.next-violet, .tweet-violet {
-  background-color: $violet-button;
-}
 
 // Normalizer
 * {
@@ -204,74 +114,75 @@ body.violet {
   box-sizing: border-box;
 }
 
-body{
-padding: 30px;
-font-family: 'Lato', sans-serif;
-height: 100vh;
-overflow: hidden;
-background-position: center;
+body {
+  padding: 30px;
+  font-family: 'Lato', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  background-position: center;
+  position: relative;
 
+  .container {
+    @include push--auto;
+    @include vertical-align;
+    display: grid;
+    grid-template-rows: 30% 40% 10% 20%;
+    height: 45%;
+    width: 55%;
+    border: 1px solid grey;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
 
-    .container {
-        @include push--auto;
-        @include vertical-align;
-        display: grid;
-        grid-template-rows: 30% 40% 10% 20%;
-        height: 45%;
-        width: 55%;
-        border: 1px solid black;
-        background:rgba(255,255,255, 0.8);
-        border-radius: 10px;
+    .row-1 {
+      display: grid;
+      grid-template-columns: 20% 80%;
 
-        .row-1{
-          display: grid;
-          grid-template-columns: 20% 80%;
-          .c {
-            display: flex;
-  align-items: center;
-  
-  .quote-icon {
-    padding-left: 8%;
-    width: 70%;
-  }
-          }
-       
+      .c {
+        display: flex;
+        align-items: center;
+
+        .quote-icon {
+          padding-left: 8%;
+          width: 100%;
+          height: 100%
         }
-
-        .row-2 {
-    display:flex;
-    align-items: center; 
-    justify-content: center; 
-    margin: 5%;
-        }
-
-        .row-3 {
-          .author {
-            float: right;
-          margin: 10px;
-          }
-        }
-
-        .row-4 {
-
-          .tweet-button {
-            margin: 10px;
-            float: left;
-            @include buttons($width:22.5%);
-            @include svg(2em);
-          }  
-
-          .next-button {
-            margin: 10px;
-            float: right;
-            @include buttons($width: 8%);
-            @include svg($width: 10px)
-      
-          }
-
-        }
+      }
 
     }
+
+    .row-2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 5%;
+    }
+
+    .row-3 {
+      .author {
+        float: right;
+        margin: 10px;
+      }
+    }
+
+    .row-4 {
+
+      .tweet-button {
+        margin: 10px;
+        float: left;
+        @include buttons($width: 22.5%);
+        @include svg(2em);
+      }
+
+      .next-button {
+        margin: 10px;
+        float: right;
+        @include buttons($width: 8%);
+        @include svg($width: 10px)
+      }
+
+    }
+
+  }
 
 
 

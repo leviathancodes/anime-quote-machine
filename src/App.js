@@ -20,7 +20,7 @@ class App extends Component {
   nextQuote() {    
 
     if (document.body.classList.length > 0) {
-      document.body.classList.remove(this.state.class);
+      document.body.classList.remove(`bg-${this.state.class}`);
     }
 
     const objectIndex = Math.floor(Math.random() * Math.floor(this.state.info.length));
@@ -33,7 +33,7 @@ class App extends Component {
       class: object.class
     });
     
-    document.body.classList.add(object.class);
+    document.body.classList.add(`bg-${object.class}`);
 
   }
 
@@ -47,7 +47,7 @@ class App extends Component {
       <div id="quote-box" className="container">
 
       <div className="row-1">
-      <div className="c"><QuoteIcon className="quote-icon"/></div>
+      <div className="c"><QuoteIcon className={`elem-${this.state.class} quote-icon` }/></div>
       </div>
 
       <div className="row-2">
